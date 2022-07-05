@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.rams.model.AdminObject;
+
 public class Export extends JFrame {
 
 	private JPanel contentPane;
@@ -18,7 +20,7 @@ public class Export extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Export() {
+	public Export(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -39,7 +41,7 @@ public class Export extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard();
+							Dashboard frame = new Dashboard(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

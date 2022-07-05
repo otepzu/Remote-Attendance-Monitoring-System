@@ -1,7 +1,7 @@
 package com.rams.model;
 
 public class EmployeeObject {
-	private int employeeId; // Key
+	private String employeeId; // Key
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -10,7 +10,7 @@ public class EmployeeObject {
 	private String defaultLocation;
 	private String assignedLocation;
 	
-	public EmployeeObject(int employeeId, String firstName, String middleName, String lastName, String username,
+	public EmployeeObject(String employeeId, String firstName, String middleName, String lastName, String username,
 			String password, String defaultLocation, String assignedLocation) {
 		super();
 		this.employeeId = employeeId;
@@ -23,11 +23,11 @@ public class EmployeeObject {
 		this.assignedLocation = assignedLocation;
 	}
 
-	public int getEmployeeId() {
+	public String getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(int employeeId) {
+	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
 

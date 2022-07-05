@@ -3,6 +3,9 @@ package com.rams.view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.rams.model.AdminObject;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -17,7 +20,7 @@ public class Dashboard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Dashboard() {
+	public Dashboard(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -33,7 +36,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Export frame = new Export();
+							Export frame = new Export(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -53,7 +56,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager();
+							AccountManager frame = new AccountManager(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -73,7 +76,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Settings frame = new Settings();
+							Settings frame = new Settings(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

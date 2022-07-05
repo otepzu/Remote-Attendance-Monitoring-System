@@ -10,6 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.rams.model.AdminObject;
+import com.rams.model.EmployeeObject;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
@@ -22,13 +26,13 @@ public class AddAccount extends JFrame {
 	private JTextField inpLastName;
 	private JTextField inpUsername;
 	private JPasswordField inpPassword;
-	private JTextField noInpDefaultAddress;
+	private JTextField noInpDefaultLocation;
 	private JTextField noInpAssignedLocation;
 
 	/**
 	 * Create the frame.
 	 */
-	public AddAccount() {
+	public AddAccount(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -48,7 +52,7 @@ public class AddAccount extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager();
+							AccountManager frame = new AccountManager(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -119,11 +123,11 @@ public class AddAccount extends JFrame {
 		lblDefaultLocation.setBounds(194, 56, 135, 14);
 		contentPane.add(lblDefaultLocation);
 		
-		noInpDefaultAddress = new JTextField();
-		noInpDefaultAddress.setText("Main Office Here");
-		noInpDefaultAddress.setColumns(10);
-		noInpDefaultAddress.setBounds(194, 81, 315, 20);
-		contentPane.add(noInpDefaultAddress);
+		noInpDefaultLocation = new JTextField();
+		noInpDefaultLocation.setText("2156-D D. Florentino St, Sampaloc, Manila, 1008 Metro Manila");
+		noInpDefaultLocation.setColumns(10);
+		noInpDefaultLocation.setBounds(194, 81, 315, 20);
+		contentPane.add(noInpDefaultLocation);
 		
 		JLabel lblAssignedLocation = new JLabel("Assigned Location");
 		lblAssignedLocation.setBounds(194, 140, 135, 14);
@@ -137,6 +141,23 @@ public class AddAccount extends JFrame {
 		JLabel DeleteMeLater = new JLabel("Location Picker");
 		DeleteMeLater.setBounds(194, 168, 135, 14);
 		contentPane.add(DeleteMeLater);
+		
+		JButton btnAdd = new JButton("Add Account");
+		btnAdd.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				EmployeeObject eo = new EmployeeObject(
+						inpEmployeeID.getText().toString(),
+						inpFirstName.getText().toString(),
+						inpMiddleName.getText().toString(),
+						inpLastName.getText().toString(),
+						inpUsername.getText().toString(),
+						null,
+						noInpDefaultLocation.getText().toString(),
+						noInpAssignedLocation.getText().toString());
+			}
+		});
+		btnAdd.setBounds(195, 248, 134, 23);
+		contentPane.add(btnAdd);
 	}
-
 }

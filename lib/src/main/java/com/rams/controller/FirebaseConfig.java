@@ -24,7 +24,7 @@ public class FirebaseConfig {
 	    try {
 	        options = new FirebaseOptions.Builder()
 	          .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-	          .setDatabaseUrl("https://soft-eng-2-rams-default-rtdb.firebaseio.com/")
+	          .setDatabaseUrl("https://soft-eng-2-rams-default-rtdb.firebaseio.com")
 	          .build();
 	    } catch (IOException e2) {
 	        // TODO Auto-generated catch block

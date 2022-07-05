@@ -1,10 +1,10 @@
 package com.rams.model;
 
-public class AdminObject {
+public class TestObject {
 	private String username;
 	private String password;
 	
-	public AdminObject(String username, String password) {
+	public TestObject(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -21,5 +21,5 @@ public class AdminObject {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
 }

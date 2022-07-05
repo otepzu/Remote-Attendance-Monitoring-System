@@ -8,6 +8,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.rams.model.AdminObject;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -18,7 +21,7 @@ public class AccountManager extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AccountManager() {
+	public AccountManager(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -38,7 +41,7 @@ public class AccountManager extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard();
+							Dashboard frame = new Dashboard(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -62,7 +65,7 @@ public class AccountManager extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							EditAccount frame = new EditAccount();
+							EditAccount frame = new EditAccount(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -82,7 +85,7 @@ public class AccountManager extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AddAccount frame = new AddAccount();
+							AddAccount frame = new AddAccount(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

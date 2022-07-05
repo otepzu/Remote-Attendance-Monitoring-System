@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import com.rams.controller.AdminAccount;
+import com.rams.controller.TestCRUD;
+import com.rams.model.AdminObject;
+import com.rams.model.TestObject;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -28,6 +33,10 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		// Initialize Database
+		AdminObject dbAO = AdminAccount.retrieveAdminUser();		
+		
+		// Layout
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -58,20 +67,33 @@ public class Login extends JFrame {
 		btnAdminLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// Verify Username and Password
+				// Assign User Input to AdminObject
+				String pass = "";
+				char cPass[] = inpAdminPassword.getPassword();
+				for(int i = 0; i < cPass.length; i++) {
+					pass += cPass[i];
+				}
+				AdminObject ao = new AdminObject(
+						inpAdminUsername.getText().toString(),
+						AdminAccount.encryption(pass));
 				
-				// Navigate to Admin Dashboard
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							Dashboard frame = new Dashboard();
-							frame.setVisible(true);
-							dispose();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
+				// Verify Username and Password
+				if(dbAO.getUsername().equals(AdminAccount.encryption(ao.getUsername()))) {
+					if(dbAO.getPassword().equals(ao.getPassword())) {
+						// Navigate to Admin Dashboard
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try {
+									Dashboard frame = new Dashboard(ao);
+									frame.setVisible(true);
+									dispose();
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+						});
 					}
-				});
+				}
 			}
 		});
 		btnAdminLogin.setBounds(10, 196, 86, 23);
