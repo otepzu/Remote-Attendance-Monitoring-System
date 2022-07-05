@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.rams.controller.EmpAccountController;
+import com.rams.controller.GenericController;
 import com.rams.model.AdminObject;
 import com.rams.model.EmployeeObject;
 
@@ -146,15 +148,42 @@ public class AddAccount extends JFrame {
 		btnAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				// Assign to EmployeeObject				
+				String pass = "";
+				char cPass[] = inpPassword.getPassword();
+				for(int i = 0; i < cPass.length; i++) {
+					pass += cPass[i];
+				}
 				EmployeeObject eo = new EmployeeObject(
 						inpEmployeeID.getText().toString(),
 						inpFirstName.getText().toString(),
 						inpMiddleName.getText().toString(),
 						inpLastName.getText().toString(),
 						inpUsername.getText().toString(),
-						null,
+						GenericController.encryption(pass),
 						noInpDefaultLocation.getText().toString(),
 						noInpAssignedLocation.getText().toString());
+				
+				// Empty Field Verification
+				if(!eo.getEmployeeId().toString().isEmpty() && !eo.getFirstName().toString().isEmpty() &&
+						!eo.getMiddleName().toString().isEmpty() && !eo.getLastName().toString().isEmpty() &&
+						!eo.getUsername().toString().isEmpty() && !eo.getPassword().toString().isEmpty() &&
+						!eo.getDefaultLocation().toString().isEmpty() && !eo.getAssignedLocation().toString().isEmpty()) {
+					EmpAccountController.addAccount(eo);
+					
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								AccountManager frame = new AccountManager(dbAO);
+								frame.setVisible(true);
+								dispose();
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+				
 			}
 		});
 		btnAdd.setBounds(195, 248, 134, 23);
