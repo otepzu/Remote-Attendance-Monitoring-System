@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ public class Export extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Export(AdminObject dbAO) {
+	public Export(AdminObject dbAO, ArrayList<String> empList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -41,7 +42,7 @@ public class Export extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard(dbAO);
+							Dashboard frame = new Dashboard(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

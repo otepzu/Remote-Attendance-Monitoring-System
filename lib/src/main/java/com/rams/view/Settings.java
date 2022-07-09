@@ -15,6 +15,8 @@ import com.rams.model.AdminObject;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 
 public class Settings extends JFrame {
@@ -29,7 +31,7 @@ public class Settings extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Settings(AdminObject dbAO) {
+	public Settings(AdminObject dbAO, ArrayList<String> empList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -49,7 +51,7 @@ public class Settings extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard(dbAO);
+							Dashboard frame = new Dashboard(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -129,19 +131,28 @@ public class Settings extends JFrame {
 				for(int i = 0; i < cPassC.length; i++) {
 					passC += cPassC[i];
 				}
+				String username = inpNewUsername.getText().toString();
 				
 				// Verify UserInput				
 				if(AdminAccount.encryption(pass).equals(dbAO.getPassword())) {
 					if(passN.equals(passC)) {
+						if(passN.isEmpty()) {
+							passN = pass;
+						}
+						
+						if(username.isEmpty()) {
+							username = dbAO.getUsername();
+						}
+						
 						AdminObject ao = new AdminObject(
-								inpNewUsername.getText().toString(),
+								username,
 								AdminAccount.encryption(passN));
 						AdminAccount.editAdminUser(ao);
 						
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {
-									Dashboard frame = new Dashboard(ao);
+									Dashboard frame = new Dashboard(ao, empList);
 									frame.setVisible(true);
 									dispose();
 								} catch (Exception e) {

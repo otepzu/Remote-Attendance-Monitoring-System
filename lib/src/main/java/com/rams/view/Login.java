@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import com.rams.controller.AdminAccount;
+import com.rams.controller.EmpAccountController;
 import com.rams.controller.TestCRUD;
 import com.rams.model.AdminObject;
 import com.rams.model.TestObject;
@@ -17,6 +18,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Login extends JFrame {
 	/* Required every startup
@@ -34,7 +36,8 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		// Initialize Database
-		AdminObject dbAO = AdminAccount.retrieveAdminUser();		
+		AdminObject dbAO = AdminAccount.retrieveAdminUser();
+		ArrayList<String> empList = EmpAccountController.retrieveAccountList();
 		
 		// Layout
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,8 +86,8 @@ public class Login extends JFrame {
 						// Navigate to Admin Dashboard
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
-								try {
-									Dashboard frame = new Dashboard(ao);
+								try {									
+									Dashboard frame = new Dashboard(ao, empList);
 									frame.setVisible(true);
 									dispose();
 								} catch (Exception e) {

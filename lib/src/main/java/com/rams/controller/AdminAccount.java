@@ -34,6 +34,14 @@ public class AdminAccount {
 			}
 		});
 		
+		// Delay
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return dbAO;
 	}
 	
@@ -41,28 +49,26 @@ public class AdminAccount {
 		FirebaseDatabase db = FirebaseDatabase.getInstance();
 		DatabaseReference ref1, ref2;
 		
-		if(!ao.getUsername().isEmpty()) {
-			ref1 = db.getReference("Admin").child("Username");
-			ref1.setValue(encryption(ao.getUsername().toString()), new DatabaseReference.CompletionListener() {
-				@Override
-				public void onComplete(DatabaseError error, DatabaseReference ref) {
-					// TODO Auto-generated method stub
-				}
-			});
-		}
+		ref1 = db.getReference("Admin").child("Username");
+		ref1.setValue(encryption(ao.getUsername().toString()), new DatabaseReference.CompletionListener() {
+			@Override
+			public void onComplete(DatabaseError error, DatabaseReference ref) {
+				// TODO Auto-generated method stub
+			}
+		});
 		
-		if(!ao.getUsername().isEmpty()) {
-			ref2 = db.getReference("Admin").child("Password");
-			ref2.setValue(ao.getPassword().toString(), new DatabaseReference.CompletionListener() {
-				@Override
-				public void onComplete(DatabaseError error, DatabaseReference ref) {
-					// TODO Auto-generated method stub
-				}
-			});
-		}
+		ref2 = db.getReference("Admin").child("Password");
+		ref2.setValue(ao.getPassword().toString(), new DatabaseReference.CompletionListener() {
+			@Override
+			public void onComplete(DatabaseError error, DatabaseReference ref) {
+				// TODO Auto-generated method stub
+			}
+		});
 	}
 	
 	public static String encryption(String str) {
+		// admin = 21232f297a57a5a743894a0e4a801fc3
+		
 		MessageDigest m;
 		try {
 			m = MessageDigest.getInstance("MD5");

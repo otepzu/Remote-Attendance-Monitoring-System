@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,7 +35,7 @@ public class AddAccount extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddAccount(AdminObject dbAO) {
+	public AddAccount(AdminObject dbAO, ArrayList<String> empList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -54,7 +55,7 @@ public class AddAccount extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO);
+							AccountManager frame = new AccountManager(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -126,7 +127,7 @@ public class AddAccount extends JFrame {
 		contentPane.add(lblDefaultLocation);
 		
 		noInpDefaultLocation = new JTextField();
-		noInpDefaultLocation.setText("2156-D D. Florentino St, Sampaloc, Manila, 1008 Metro Manila");
+		noInpDefaultLocation.setText("JX8X+RF Manila, Metro Manila");
 		noInpDefaultLocation.setColumns(10);
 		noInpDefaultLocation.setBounds(194, 81, 315, 20);
 		contentPane.add(noInpDefaultLocation);
@@ -174,7 +175,7 @@ public class AddAccount extends JFrame {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								AccountManager frame = new AccountManager(dbAO);
+								AccountManager frame = new AccountManager(dbAO, empList);
 								frame.setVisible(true);
 								dispose();
 							} catch (Exception e) {

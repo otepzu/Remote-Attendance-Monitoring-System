@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Dashboard extends JFrame {
 
@@ -20,7 +21,7 @@ public class Dashboard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Dashboard(AdminObject dbAO) {
+	public Dashboard(AdminObject dbAO, ArrayList<String> empList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -36,7 +37,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Export frame = new Export(dbAO);
+							Export frame = new Export(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -56,7 +57,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO);
+							AccountManager frame = new AccountManager(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -76,7 +77,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Settings frame = new Settings(dbAO);
+							Settings frame = new Settings(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

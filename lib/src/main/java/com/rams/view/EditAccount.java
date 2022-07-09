@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.rams.model.AdminObject;
+import com.rams.model.EmployeeObject;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -25,13 +27,13 @@ public class EditAccount extends JFrame {
 	private JTextField inpLastName;
 	private JTextField inpUsername;
 	private JPasswordField inpPassword;
-	private JTextField noInpDefaultAddress;
+	private JTextField noInpDefaultLocation;
 	private JTextField noInpAssignedLocation;
 
 	/**
 	 * Create the frame.
 	 */
-	public EditAccount(AdminObject dbAO) {
+	public EditAccount(AdminObject dbAO, EmployeeObject dbEO, ArrayList<String> empList, int position) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -51,7 +53,7 @@ public class EditAccount extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO);
+							AccountManager frame = new AccountManager(dbAO, empList);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -128,11 +130,11 @@ public class EditAccount extends JFrame {
 		lblDefaultLocation.setBounds(194, 56, 135, 14);
 		contentPane.add(lblDefaultLocation);
 		
-		noInpDefaultAddress = new JTextField();
-		noInpDefaultAddress.setText("Main Office Location Here");
-		noInpDefaultAddress.setColumns(10);
-		noInpDefaultAddress.setBounds(194, 81, 315, 20);
-		contentPane.add(noInpDefaultAddress);
+		noInpDefaultLocation = new JTextField();
+		noInpDefaultLocation.setText("Main Office Location Here");
+		noInpDefaultLocation.setColumns(10);
+		noInpDefaultLocation.setBounds(194, 81, 315, 20);
+		contentPane.add(noInpDefaultLocation);
 		
 		JLabel lblAssignedLocation = new JLabel("Assigned Location");
 		lblAssignedLocation.setBounds(194, 140, 135, 14);
@@ -155,6 +157,15 @@ public class EditAccount extends JFrame {
 		JButton btnSaveEdit = new JButton("Save Edit");
 		btnSaveEdit.setBounds(194, 248, 156, 23);
 		contentPane.add(btnSaveEdit);
+		
+		// Set Selected Employee
+		inpEmployeeID.setText(dbEO.getEmployeeId());
+		inpUsername.setText(dbEO.getUsername());
+		inpFirstName.setText(dbEO.getFirstName());
+		inpMiddleName.setText(dbEO.getMiddleName());
+		inpLastName.setText(dbEO.getLastName());
+		noInpDefaultLocation.setText(dbEO.getDefaultLocation());
+		noInpAssignedLocation.setText(dbEO.getAssignedLocation());
 	}
 
 }
