@@ -1,5 +1,7 @@
 package com.rams.model;
 
+import java.util.ArrayList;
+
 public class EmployeeObject {
 	private String employeeId; // Key
 	private String firstName;
@@ -9,6 +11,38 @@ public class EmployeeObject {
 	private String password;
 	private String defaultLocation;
 	private String assignedLocation;
+	
+	private static ArrayList<String> empList = new ArrayList<String>();
+	
+	public static int getLength() {
+		return empList.size();
+	}
+	
+	public static void addEmp(String emp) {
+		EmployeeObject.empList.add(emp);
+	}
+	
+	public static String getEmp(int i) {
+		return EmployeeObject.empList.get(i);
+	}
+	
+	public static void setEmp(int i, String val) {
+		EmployeeObject.empList.set(i, val);
+	}
+	
+	public static void deleteEmp(int i) {
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+		EmployeeObject.empList.remove(i);
+	}
+	
+	public static void clearEmp() {
+		EmployeeObject.empList.clear();
+	}
 	
 	public EmployeeObject(String employeeId, String firstName, String middleName, String lastName, String username,
 			String password, String defaultLocation, String assignedLocation) {

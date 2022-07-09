@@ -21,7 +21,7 @@ public class Dashboard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Dashboard(AdminObject dbAO, ArrayList<String> empList) {
+	public Dashboard(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -37,7 +37,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Export frame = new Export(dbAO, empList);
+							Export frame = new Export(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -57,7 +57,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO, empList);
+							AccountManager frame = new AccountManager(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -77,7 +77,7 @@ public class Dashboard extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Settings frame = new Settings(dbAO, empList);
+							Settings frame = new Settings(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {

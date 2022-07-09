@@ -37,7 +37,7 @@ public class Login extends JFrame {
 	public Login() {
 		// Initialize Database
 		AdminObject dbAO = AdminAccount.retrieveAdminUser();
-		ArrayList<String> empList = EmpAccountController.retrieveAccountList();
+		EmpAccountController.retrieveAccountList();
 		
 		// Layout
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,7 +87,7 @@ public class Login extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {									
-									Dashboard frame = new Dashboard(ao, empList);
+									Dashboard frame = new Dashboard(ao);
 									frame.setVisible(true);
 									dispose();
 								} catch (Exception e) {

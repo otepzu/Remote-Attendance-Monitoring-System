@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.rams.controller.AdminAccount;
 import com.rams.model.AdminObject;
+import com.rams.model.EmployeeObject;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -31,7 +32,7 @@ public class Settings extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Settings(AdminObject dbAO, ArrayList<String> empList) {
+	public Settings(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -51,7 +52,7 @@ public class Settings extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard(dbAO, empList);
+							Dashboard frame = new Dashboard(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -152,7 +153,7 @@ public class Settings extends JFrame {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {
-									Dashboard frame = new Dashboard(ao, empList);
+									Dashboard frame = new Dashboard(ao);
 									frame.setVisible(true);
 									dispose();
 								} catch (Exception e) {
@@ -178,6 +179,8 @@ public class Settings extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
+							EmployeeObject.clearEmp();
+							
 							Login frame = new Login();
 							frame.setVisible(true);
 							dispose();

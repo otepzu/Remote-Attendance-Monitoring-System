@@ -35,7 +35,7 @@ public class AddAccount extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddAccount(AdminObject dbAO, ArrayList<String> empList) {
+	public AddAccount(AdminObject dbAO) {	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -55,7 +55,7 @@ public class AddAccount extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO, empList);
+							AccountManager frame = new AccountManager(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -175,7 +175,15 @@ public class AddAccount extends JFrame {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								AccountManager frame = new AccountManager(dbAO, empList);
+								EmployeeObject.addEmp(eo.getEmployeeId()); // Employee ID
+								EmployeeObject.addEmp(eo.getUsername());
+								EmployeeObject.addEmp(eo.getFirstName());
+								EmployeeObject.addEmp(eo.getMiddleName());
+								EmployeeObject.addEmp(eo.getLastName());
+								EmployeeObject.addEmp(eo.getDefaultLocation());
+								EmployeeObject.addEmp(eo.getAssignedLocation());
+								
+								AccountManager frame = new AccountManager(dbAO);
 								frame.setVisible(true);
 								dispose();
 							} catch (Exception e) {

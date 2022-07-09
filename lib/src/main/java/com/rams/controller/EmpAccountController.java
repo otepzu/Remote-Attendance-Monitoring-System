@@ -18,67 +18,68 @@ public class EmpAccountController {
 		DatabaseReference ref;
 		
 		ref = db.getReference("Employee").child(eo.getEmployeeId().toString());
-		ref.child("FirstName").setValue(eo.getFirstName().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("MiddleName").setValue(eo.getMiddleName().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("LastName").setValue(eo.getLastName().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("Username").setValue(eo.getUsername().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("Password").setValue(eo.getPassword().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("DefaultLocation").setValue(eo.getDefaultLocation().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
-		ref.child("AssignedLocation").setValue(eo.getAssignedLocation().toString(), new DatabaseReference.CompletionListener() {
-			@Override
-			public void onComplete(DatabaseError error, DatabaseReference ref) {
-				// TODO Auto-generated method stub
-			}
-		});
+		ref.child("FirstName").setValue(eo.getFirstName().toString(), null);
+		ref.child("MiddleName").setValue(eo.getMiddleName().toString(), null);
+		ref.child("LastName").setValue(eo.getLastName().toString(), null);
+		ref.child("Username").setValue(eo.getUsername().toString(), null);
+		ref.child("Password").setValue(eo.getPassword().toString(), null);
+		ref.child("DefaultLocation").setValue(eo.getDefaultLocation().toString(), null);
+		ref.child("AssignedLocation").setValue(eo.getAssignedLocation().toString(), null);
 	}
 	
-	public static ArrayList<String> retrieveAccountList() {
+	public static void editAccount(EmployeeObject eo, int position) {		
+		FirebaseDatabase db = FirebaseDatabase.getInstance();
+		DatabaseReference ref;
+			
+		ref = db.getReference("Employee").child(eo.getEmployeeId().toString());
+		ref.child("FirstName").setValue(eo.getFirstName().toString(), null);
+		ref.child("MiddleName").setValue(eo.getMiddleName().toString(), null);
+		ref.child("LastName").setValue(eo.getLastName().toString(), null);
+		ref.child("Username").setValue(eo.getUsername().toString(), null);
+		if(!eo.getPassword().toString().isEmpty()) {
+			ref.child("Password").setValue(GenericController.encryption(eo.getPassword().toString()), null);
+		}
+		ref.child("DefaultLocation").setValue(eo.getDefaultLocation().toString(), null);
+		ref.child("AssignedLocation").setValue(eo.getAssignedLocation().toString(), null);
+		
+		EmployeeObject.setEmp(position, eo.getEmployeeId().toString());
+		EmployeeObject.setEmp(position + 1, eo.getUsername().toString());
+		EmployeeObject.setEmp(position + 2, eo.getFirstName().toString());
+		EmployeeObject.setEmp(position + 3, eo.getMiddleName().toString());
+		EmployeeObject.setEmp(position + 4, eo.getLastName().toString());
+		EmployeeObject.setEmp(position + 5, eo.getDefaultLocation().toString());
+		EmployeeObject.setEmp(position + 6, eo.getAssignedLocation().toString());
+	}
+	
+	public static void deleteAccount(String key, int position) {
+		FirebaseDatabase db = FirebaseDatabase.getInstance();
+		DatabaseReference ref = db.getReference();
+		
+		ref.child("Employee").child(key).removeValue(null);
+		EmployeeObject.deleteEmp(position);
+	}
+	
+	public static void retrieveAccountList() {
 		ArrayList<String> empAcc = new ArrayList<String>();
 		
 		FirebaseDatabase db = FirebaseDatabase.getInstance();
 		DatabaseReference ref = db.getReference();
 		
-		ref.child("Employee").addValueEventListener(new ValueEventListener() {
+		ref.child("Employee").addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
-				for(DataSnapshot snapshot: dataSnapshot.getChildren()) {					
-					empAcc.add(snapshot.getKey().toString()); // Employee ID
-					empAcc.add(snapshot.child("Username").getValue().toString());
-					empAcc.add(snapshot.child("FirstName").getValue().toString());
-					empAcc.add(snapshot.child("MiddleName").getValue().toString());
-					empAcc.add(snapshot.child("LastName").getValue().toString());
-					empAcc.add(snapshot.child("DefaultLocation").getValue().toString());
-					empAcc.add(snapshot.child("AssignedLocation").getValue().toString());
+				for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+					if(snapshot.exists()) {
+						EmployeeObject.addEmp(snapshot.getKey().toString()); // Employee ID
+						EmployeeObject.addEmp(snapshot.child("Username").getValue().toString());
+						EmployeeObject.addEmp(snapshot.child("FirstName").getValue().toString());
+						EmployeeObject.addEmp(snapshot.child("MiddleName").getValue().toString());
+						EmployeeObject.addEmp(snapshot.child("LastName").getValue().toString());
+						EmployeeObject.addEmp(snapshot.child("DefaultLocation").getValue().toString());
+						EmployeeObject.addEmp(snapshot.child("AssignedLocation").getValue().toString());
+					} else {
+						ref.removeEventListener(this);
+					}
 				}
 			}
 			
@@ -87,15 +88,5 @@ public class EmpAccountController {
 				
 			}
 		});
-		
-		// Delay
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return empAcc;
 	}
 }

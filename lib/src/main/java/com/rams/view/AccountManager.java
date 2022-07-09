@@ -33,7 +33,7 @@ public class AccountManager extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AccountManager(AdminObject dbAO, ArrayList<String> empList) {
+	public AccountManager(AdminObject dbAO) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -53,7 +53,7 @@ public class AccountManager extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Dashboard frame = new Dashboard(dbAO, empList);
+							Dashboard frame = new Dashboard(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -79,16 +79,16 @@ public class AccountManager extends JFrame {
 					String empID = "", userName = "",
 							firstName = "", middleName = "", lastName = "",
 							defaultLocation = "", assignedLocation = "";
-					for(int i = 0; i < empList.size(); i++) {
-						if(empList.get(i).equals(selected)) {
+					for(int i = 0; i < EmployeeObject.getLength(); i++) {
+						if(EmployeeObject.getEmp(i).equals(selected)) {
 							position = i;
-							empID = empList.get(i);
-							userName = empList.get(i + 1);
-							firstName = empList.get(i + 2);
-							middleName = empList.get(i + 3);
-							lastName = empList.get(i + 4);
-							defaultLocation = empList.get(i + 5);
-							assignedLocation = empList.get(i + 6);
+							empID = EmployeeObject.getEmp(i);
+							userName = EmployeeObject.getEmp(i + 1);
+							firstName = EmployeeObject.getEmp(i + 2);
+							middleName = EmployeeObject.getEmp(i + 3);
+							lastName = EmployeeObject.getEmp(i + 4);
+							defaultLocation = EmployeeObject.getEmp(i + 5);
+							assignedLocation = EmployeeObject.getEmp(i + 6);
 						}
 						i = i + 6;
 					}
@@ -100,7 +100,7 @@ public class AccountManager extends JFrame {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								EditAccount frame = new EditAccount(dbAO, dbEO, empList, position);
+								EditAccount frame = new EditAccount(dbAO, dbEO, position);
 								frame.setVisible(true);
 								dispose();
 							} catch (Exception e) {
@@ -121,7 +121,7 @@ public class AccountManager extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AddAccount frame = new AddAccount(dbAO, empList);
+							AddAccount frame = new AddAccount(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -138,7 +138,7 @@ public class AccountManager extends JFrame {
 		scrollPane.setBounds(10, 36, 277, 302);
 		getContentPane().add(scrollPane);
 		
-		int length = empList.size();
+		int length = EmployeeObject.getLength();
 		int row = length / 7;
 		int counter = 0;
 		Object data[][] = new Object[row][4];
@@ -146,14 +146,14 @@ public class AccountManager extends JFrame {
 			String name = "";
 			for(int j = 0; j < 7; j++) {
 				if(j < 2) {
-					data[i][j] = empList.get(counter++);
+					data[i][j] = EmployeeObject.getEmp(counter++);
 				} else if(j < 4) {
-					name += empList.get(counter++);
+					name += EmployeeObject.getEmp(counter++);
 				} else if(j == 4) {
-					name += empList.get(counter++);
+					name += EmployeeObject.getEmp(counter++);
 					data[i][2] = name;
 				} else if(j == 6){
-					data[i][3] = empList.get(counter++);
+					data[i][3] = EmployeeObject.getEmp(counter++);
 				} else {
 					counter++;
 				}
@@ -182,6 +182,5 @@ public class AccountManager extends JFrame {
 		tblEmp.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblEmp.getTableHeader().setReorderingAllowed(false);
 		scrollPane.setViewportView(tblEmp);
-		contentPane.setLayout(null);
 	}
 }

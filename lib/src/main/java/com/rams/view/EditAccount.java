@@ -12,6 +12,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.rams.controller.EmpAccountController;
+import com.rams.controller.GenericController;
 import com.rams.model.AdminObject;
 import com.rams.model.EmployeeObject;
 
@@ -33,7 +35,7 @@ public class EditAccount extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EditAccount(AdminObject dbAO, EmployeeObject dbEO, ArrayList<String> empList, int position) {
+	public EditAccount(AdminObject dbAO, EmployeeObject dbEO, int position) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();
@@ -53,7 +55,7 @@ public class EditAccount extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							AccountManager frame = new AccountManager(dbAO, empList);
+							AccountManager frame = new AccountManager(dbAO);
 							frame.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -151,10 +153,66 @@ public class EditAccount extends JFrame {
 		contentPane.add(DeleteMeLater);
 		
 		JButton btnDeleteAccount = new JButton("Delete Account");
+		btnDeleteAccount.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String key = inpEmployeeID.getText().toString();
+				EmpAccountController.deleteAccount(key, position);
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {AccountManager frame = new AccountManager(dbAO);
+							frame.setVisible(true);
+							dispose();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
 		btnDeleteAccount.setBounds(194, 293, 156, 23);
 		contentPane.add(btnDeleteAccount);
 		
 		JButton btnSaveEdit = new JButton("Save Edit");
+		btnSaveEdit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Assign to EmployeeObject				
+				String pass = "";
+				char cPass[] = inpPassword.getPassword();
+				for(int i = 0; i < cPass.length; i++) {
+					pass += cPass[i];
+				}
+				EmployeeObject eo = new EmployeeObject(
+						inpEmployeeID.getText().toString(),
+						inpFirstName.getText().toString(),
+						inpMiddleName.getText().toString(),
+						inpLastName.getText().toString(),
+						inpUsername.getText().toString(),
+						pass,
+						noInpDefaultLocation.getText().toString(),
+						noInpAssignedLocation.getText().toString());
+				
+				if(!eo.getEmployeeId().toString().isEmpty() && !eo.getFirstName().toString().isEmpty() &&
+						!eo.getMiddleName().toString().isEmpty() && !eo.getLastName().toString().isEmpty() &&
+						!eo.getUsername().toString().isEmpty() && !eo.getDefaultLocation().toString().isEmpty()
+						&& !eo.getAssignedLocation().toString().isEmpty()) {
+					EmpAccountController.editAccount(eo, position);
+					
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {AccountManager frame = new AccountManager(dbAO);
+								frame.setVisible(true);
+								dispose();
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+			}
+		});
 		btnSaveEdit.setBounds(194, 248, 156, 23);
 		contentPane.add(btnSaveEdit);
 		
