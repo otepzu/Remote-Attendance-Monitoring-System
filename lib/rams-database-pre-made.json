@@ -1,0 +1,593 @@
+{
+  "Admin": {
+    "Password": "21232f297a57a5a743894a0e4a801fc3",
+    "Username": "21232f297a57a5a743894a0e4a801fc3"
+  },
+  "Attendance": {
+    "07 01 2022": {
+      "100000": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 02 2022": {
+      "100000": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 04 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 05 2022": {
+      "100000": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 06 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 07 2022": {
+      "100000": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 08 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 09 2022": {
+      "100000": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 11 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 12 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 13 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 14 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 15 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      }
+    },
+    "07 16 2022": {
+      "100000": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100001": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100002": {
+        "LocationIN": "True",
+        "LocationOUT": "True",
+        "Status": "Present",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100003": {
+        "LocationIN": "False",
+        "LocationOUT": "False",
+        "Status": "Absent",
+        "TimeIN": "08:00",
+        "TimeOUT": "17:00"
+      },
+      "100004": {
+        "LocationIN": "False",
+        "LocationOUT": "True",
+        "Status": "Late",
+        "TimeIN": "09:00",
+        "TimeOUT": "17:00"
+      }
+    }
+  },
+  "Employee": {
+    "100000": {
+      "AssLat": "14.596371179812058",
+      "AssLon": "120.99042259079148",
+      "AssignedLocation": "TIP - Arlegui",
+      "DefLat": "14.617106501299055",
+      "DefLon": "120.99870070354781",
+      "DefaultLocation": "MBPS Cabling Corporation - Main Office",
+      "FirstName": "Joshua",
+      "LastName": "Salandanan",
+      "MiddleName": "Rosaria",
+      "Password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "Username": "mjrsalandanan"
+    },
+    "100001": {
+      "AssLat": "14.5963734289727",
+      "AssLon": "120.99042568968875",
+      "AssignedLocation": "TIP - Arlegui",
+      "DefLat": "14.617106501299055",
+      "DefLon": "120.99870070354781",
+      "DefaultLocation": "MBPS Cabling Corporation - Main Office",
+      "FirstName": "John Joseph",
+      "LastName": "Hugo",
+      "MiddleName": "Robles",
+      "Password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "Username": "mjjrhugo"
+    },
+    "100002": {
+      "AssLat": "14.596371929532268",
+      "AssLon": "120.9904303380346",
+      "AssignedLocation": "TIP - Arlegui",
+      "DefLat": "14.617106501299055",
+      "DefLon": "120.99870070354781",
+      "DefaultLocation": "MBPS Cabling Corporation - Main Office",
+      "FirstName": "Reydin Mar",
+      "LastName": "Salas",
+      "MiddleName": "Eclipse",
+      "Password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "Username": "mrmesalas"
+    },
+    "100003": {
+      "AssLat": "14.59637492841312",
+      "AssLon": "120.99043188748321",
+      "AssignedLocation": "TIP - Arlegui",
+      "DefLat": "14.617106501299055",
+      "DefLon": "120.99870070354781",
+      "DefaultLocation": "MBPS Cabling Corporation - Main Office",
+      "FirstName": "John Kenneth",
+      "LastName": "Dagum",
+      "MiddleName": "B.",
+      "Password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "Username": "mjkbdagum"
+    },
+    "100004": {
+      "AssLat": "14.59637267925249",
+      "AssLon": "120.99042878858594",
+      "AssignedLocation": "TIP - Arlegui",
+      "DefLat": "14.617106501299055",
+      "DefLon": "120.99870070354781",
+      "DefaultLocation": "MBPS Cabling Corporation - Main Office",
+      "FirstName": "Clyde",
+      "LastName": "Septimo",
+      "MiddleName": "Milgar",
+      "Password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "Username": "mcmseptimo"
+    }
+  }
+}
